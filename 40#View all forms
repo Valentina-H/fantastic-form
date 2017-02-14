@@ -1,0 +1,68 @@
+Feature: View all forms
+
+@one
+Scenario: Delete a form by hovering over
+	Given user is on Form page
+	When user hover over the form
+	Then appears editing menu above row
+	And user choose delete option
+	Then form is deleted
+	
+@two
+Scenario: Delete a form using bulk action
+	Given user is on Form page
+	When user click on checkbox above selected form
+	And user click "Delete" button above form
+	Then form is deleted
+	
+@three
+Scenario: Delete a forms(more than one) using bulk action 
+	Given user is on Form page
+	When user choose more than one form by clicking on checkbox above selected forms
+	And user click "Delete" button above form
+	Then form is deleted
+
+@four
+Scenario: Delete a forms(more than one) using bulk action/negative
+	Given user is on Form page
+	When user click "Delete" button above form
+	Then forms are not deleted
+#	And appears error message
+
+@five
+Scenario: Edit a form by clicking on form
+	Given user is on Form page
+	When user click on form title
+	Then appears editing menu above form with "Edit" field
+	
+@six
+Scenario: Edit form by hovering over 
+	Given user is on Form page
+	When user hover over the form
+	Then appears editing menu above form with "Edit" field
+
+@seven
+Scenario: Duplicate form by clicking on form
+	Given user is on Form page
+	When user click on form title
+	Then appears editing menu above form with "Duplicate" field(in future "copy" field)
+
+@eight
+Scenario: Duplicate form by hovering over
+	Given user is on Form page
+	When user hover over the form
+	Then appears editing menu above form with "Duplicate" field(in future "copy" field)
+	
+@nine
+Scenario: Preview form
+	Given user is on Form page
+	When user hover over the form
+	Then appears editing menu with "Preview form" field
+	And user click on "Preview form field"
+	Then user can preview the form
+	
+@ten
+Scenario: Add new form
+	Given user is on Form page
+	When user click "Add new form" near page header "Forms"
+	Then user can Add new form
